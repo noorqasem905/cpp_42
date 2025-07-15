@@ -1,8 +1,8 @@
 CC =  c++ 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = megaphone
+NAME =  account
 
-SRCS = 	megaphone.cpp
+SRCS = 	 Account.cpp
 all: $(NAME)
 
 OBJS =  $(SRCS:.cpp=.o)
