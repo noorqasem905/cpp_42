@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 18:05:01 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/19 19:02:05 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/07/19 19:46:40 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Contact{
 		Contact();
 		Contact(const std::string& fname, const std::string& lname, const std::string& nick, 
 				const std::string& phone, const std::string& secret);
-		void	displayContacts();
+		void	displayContacts(int i);
 		void	searchContact() const;
     	int		addContact();
     private:

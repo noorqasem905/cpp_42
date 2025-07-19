@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 18:05:05 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/19 19:02:04 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/07/19 19:35:25 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ class PhoneBook
 {
 	public:
 		void displayContacts();
-		void searchContact(int index) const;
+		void searchContact(int index);
 		PhoneBook();
 		void addBook();
 	private:
-        Contact contacts[8];
+        Contact contacts[2];
         int myNum;
 
 };

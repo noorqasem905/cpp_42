@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 18:04:12 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/19 18:59:26 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/07/19 19:52:47 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,10 @@ void PhoneBook::addBook()
 	int ret;
 
 	ret = contacts[myNum].addContact();
-	if (ret == -1)
-		return;
-	if (myNum < 8)
+	if (myNum < 1 && ret == 0)
         myNum++;
-	else 
-        myNum = 1;
+	else if (ret == 0)
+		myNum = 0;
 }
 
 void PhoneBook::displayContacts() 
@@ -35,16 +33,14 @@ void PhoneBook::displayContacts()
     std::cout << std::setw(10) << std::right << "first name" << "|";
     std::cout << std::setw(10) << std::right << "last name" << "|";
     std::cout << std::setw(10) << std::right << "nickname" << "|" << std::endl;
-    for (int i = 0; i < myNum; ++i)
+    for (int i = 0; i < 2; ++i)
     {
-        std::cout << std::setw(10) << std::right << i << "|";
-		contacts[i].displayContacts();
-        std::cout << std::endl;
+		contacts[i].displayContacts(i);
     }
 }
 
-void PhoneBook::searchContact(int index) const {
-	if (index < 0 || index >= myNum) {
+void PhoneBook::searchContact(int index){
+	if (index < 0 || index > myNum) {
 		std::cout << "Invalid index!" << std::endl;
 		return;
 	}
