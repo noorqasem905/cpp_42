@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 18:04:12 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/19 19:52:47 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/07/22 08:46:24 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ void PhoneBook::addBook()
 	if (myNum < 1 && ret == 0)
         myNum++;
 	else if (ret == 0)
+	{
+		contactCount = 1;
 		myNum = 0;
+	}
 }
 
 void PhoneBook::displayContacts() 
@@ -40,7 +43,8 @@ void PhoneBook::displayContacts()
 }
 
 void PhoneBook::searchContact(int index){
-	if (index < 0 || index > myNum) {
+	if (index < 0 || (index >= myNum && contactCount == 0) || index >= 2) 
+	{
 		std::cout << "Invalid index!" << std::endl;
 		return;
 	}

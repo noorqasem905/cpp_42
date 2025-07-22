@@ -1,10 +1,9 @@
 CC =  c++ 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME =  PhoneBook
+NAME =  Account
 
 SRCS = 	 Account.cpp \
-		PhoneBook.cpp \
-	 	Contacts.cpp
+		tests.cpp
 all: $(NAME)
 
 OBJS =  $(SRCS:.cpp=.o)
