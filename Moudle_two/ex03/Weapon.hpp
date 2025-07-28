@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 18:31:45 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/28 19:09:14 by nqasem           ###   ########.fr       */
+/*   Created: 2025/07/28 20:15:15 by nqasem            #+#    #+#             */
+/*   Updated: 2025/07/28 20:56:39 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
 
-int main(){
-	std::string st= "HI THIS IS BRAIN";
-	std::string *stringPTR = &st; 
-	std::string &stringREF = st;
+class Weapon
+{
+	private:
+		std::string type;
+	public:
+		void attack() const;
+		Weapon(const std::string& type);
+		const std::string& getType() const;
+		void setType(const std::string type);
 
-	std::cout << &st << std::endl;
-	std::cout << stringPTR << std::endl;
-	std::cout << &stringREF << std::endl;
-
-	std::cout << st << std::endl;
-	std::cout << *stringPTR << std::endl;
-	std::cout << stringREF << std::endl;
-
-}
+};

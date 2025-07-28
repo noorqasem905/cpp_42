@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 18:31:45 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/28 19:09:14 by nqasem           ###   ########.fr       */
+/*   Created: 2025/07/28 20:14:56 by nqasem            #+#    #+#             */
+/*   Updated: 2025/07/28 20:56:40 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
+#include "Weapon.hpp"
 
-int main(){
-	std::string st= "HI THIS IS BRAIN";
-	std::string *stringPTR = &st; 
-	std::string &stringREF = st;
+Weapon::Weapon(const std::string& type) : type(type)
+{
+}
 
-	std::cout << &st << std::endl;
-	std::cout << stringPTR << std::endl;
-	std::cout << &stringREF << std::endl;
+const std::string& Weapon::getType() const	
+{
+	return (type);
+}
+void Weapon::setType(const std::string type)
+{
+	this->type = type;
+}
 
-	std::cout << st << std::endl;
-	std::cout << *stringPTR << std::endl;
-	std::cout << stringREF << std::endl;
-
+void Weapon::attack() const
+{
+	std::cout << "Attacking with " << type << std::endl;
 }

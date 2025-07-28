@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 18:31:45 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/28 19:09:14 by nqasem           ###   ########.fr       */
+/*   Created: 2025/07/28 20:27:53 by nqasem            #+#    #+#             */
+/*   Updated: 2025/07/28 20:53:54 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
+#include "Weapon.hpp"
 
-int main(){
-	std::string st= "HI THIS IS BRAIN";
-	std::string *stringPTR = &st; 
-	std::string &stringREF = st;
+class HumanB
+{
+	private:
+		std::string name;
+		Weapon* weapon;
+};
 
-	std::cout << &st << std::endl;
-	std::cout << stringPTR << std::endl;
-	std::cout << &stringREF << std::endl;
-
-	std::cout << st << std::endl;
-	std::cout << *stringPTR << std::endl;
-	std::cout << stringREF << std::endl;
-
-}

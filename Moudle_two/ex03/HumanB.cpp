@@ -1,29 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 18:31:45 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/28 19:09:14 by nqasem           ###   ########.fr       */
+/*   Created: 2025/07/28 20:27:11 by nqasem            #+#    #+#             */
+/*   Updated: 2025/07/28 20:54:01 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
+#include "HumanB.hpp"
 
-int main(){
-	std::string st= "HI THIS IS BRAIN";
-	std::string *stringPTR = &st; 
-	std::string &stringREF = st;
-
-	std::cout << &st << std::endl;
-	std::cout << stringPTR << std::endl;
-	std::cout << &stringREF << std::endl;
-
-	std::cout << st << std::endl;
-	std::cout << *stringPTR << std::endl;
-	std::cout << stringREF << std::endl;
-
-}
