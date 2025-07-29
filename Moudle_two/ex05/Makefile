@@ -1,15 +1,18 @@
 CC =  c++ 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = megaphone
+ARFLAGS = rcs
+NAME = zombie
 
-SRCS = 	megaphone.cpp
+SRCS = main.cpp
 all: $(NAME)
 
 OBJS =  $(SRCS:.cpp=.o)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+%.o : %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $@
 clean:
 	rm -f $(OBJS)
 
