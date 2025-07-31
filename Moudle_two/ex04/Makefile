@@ -1,9 +1,9 @@
 CC =  c++ 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS =  -std=c++98
 ARFLAGS = rcs
 NAME = zombie
 
-SRCS = main.cpp
+SRCS = main.cpp	
 all: $(NAME)
 
 OBJS =  $(SRCS:.cpp=.o)

@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 19:14:12 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/29 16:21:25 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/07/31 17:16:47 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main()
 	HumanB jim("Jim");
 	jim.setWeapon(club1);
 	jim.attack();
-	club1.setType("some other type of club");
+	club1.setType("some           other type of club");
 	jim.attack();
 		return 0;
 }
