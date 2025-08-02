@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 17:22:07 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/31 20:45:00 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/08/02 15:06:15 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,5 @@ int main(int ac, char **av)
 	std::cout << GREEN << "✓ Replacement completed successfully" << RESET << std::endl;
 	std::cout << CYAN << "Output saved to: " << YELLOW << filename << ".replace" << RESET << std::endl;
 
-	return 0;
+	return (0);
 }
