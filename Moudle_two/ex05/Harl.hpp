@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 15:11:08 by nqasem            #+#    #+#             */
-/*   Updated: 2025/08/02 19:21:19 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/08/03 18:25:31 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 class Harl
 {
 private:
-	/* data */
-public:
-	Harl(std::string lev);
-	void complain(std::string level);
 	void debug( void );
 	void info( void );
 	void warning( void );
 	void error( void );
+	
+public:
+	Harl();
+	void complain(std::string level);
 	struct Har_function_s
 	{
 		std::string level;
