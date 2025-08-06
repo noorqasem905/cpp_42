@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 18:05:05 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/22 08:41:07 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/08/06 18:38:09 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class PhoneBook
 	private:
         Contact contacts[2];
         int myNum;
-		int contactCount = 0;
+		int contactCount;
 
 };
 

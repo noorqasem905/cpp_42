@@ -1,7 +1,6 @@
 CC =  c++ 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = 	 Account.cpp \
-		tests.cpp
+SRCS = 	 Account.cpp 
 ARFLAGS = rcs
 NAME = Account
 

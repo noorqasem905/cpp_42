@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 18:04:12 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/22 08:46:24 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/08/06 18:38:12 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 
-PhoneBook::PhoneBook() : myNum(0) {}
+PhoneBook::PhoneBook() : myNum(0), contactCount(0) {}
 
 void PhoneBook::addBook()
 {
