@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 09:19:49 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/23 19:26:44 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/08/06 16:45:27 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <iostream>
 #include <ctime>
 
-// Account::Account
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;

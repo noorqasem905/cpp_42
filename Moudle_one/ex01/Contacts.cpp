@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 18:13:10 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/19 19:46:34 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/08/06 16:39:01 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ int Contact::addContact()
     std::getline(std::cin, nickname);
     std::cout << "Enter phone number: ";
     std::getline(std::cin, phoneNumber);
+	if (phoneNumber.empty() || phoneNumber.find_first_not_of("0123456789") != std::string::npos)
+	{
+		std::cout << "Invalid phone number!" << std::endl;
+		return (-1);
+	}
     std::cout << "Enter darkest secret: ";
     std::getline(std::cin, darkestSecret);
 	if (first_name.empty() || last_name.empty() || nickname.empty() || phoneNumber.empty() || darkestSecret.empty())

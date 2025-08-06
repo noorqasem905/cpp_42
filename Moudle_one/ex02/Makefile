@@ -1,16 +1,19 @@
-CC = c++
+CC =  c++ 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME =  Account
-
 SRCS = 	 Account.cpp \
 		tests.cpp
+ARFLAGS = rcs
+NAME = Account
+
 all: $(NAME)
 
 OBJS =  $(SRCS:.cpp=.o)
 
+%.o : %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $@
 clean:
 	rm -f $(OBJS)
 
