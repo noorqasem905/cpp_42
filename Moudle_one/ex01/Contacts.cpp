@@ -6,19 +6,13 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 18:13:10 by nqasem            #+#    #+#             */
-/*   Updated: 2025/08/06 16:39:01 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/08/12 18:48:22 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contacts.hpp"
 #include "PhoneBook.hpp"
 #include <iostream>
-
-Contact::Contact() : first_name(""), last_name(""), nickname(""), phoneNumber(""), darkestSecret("") {}
-
-Contact::Contact(const std::string& fname, const std::string& lname, const std::string& nick, 
-        const std::string& phone, const std::string& secret) 
-    : first_name(fname), last_name(lname), nickname(nick), phoneNumber(phone), darkestSecret(secret) {}
 
 int Contact::addContact()
 {
