@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 18:05:01 by nqasem            #+#    #+#             */
-/*   Updated: 2025/08/12 18:48:29 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/09/30 15:21:24 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 class Contact{
 
 	public:
-		Contact();
-		~Contact();
 		void	displayContacts(int i);
 		void	searchContact() const;
     	int		addContact();

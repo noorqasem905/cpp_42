@@ -6,16 +6,13 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 18:13:10 by nqasem            #+#    #+#             */
-/*   Updated: 2025/09/13 19:26:59 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/08/12 18:48:22 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contacts.hpp"
 #include "PhoneBook.hpp"
 #include <iostream>
-
-Contact::Contact(){}
-Contact::~Contact(){}
 
 int Contact::addContact()
 {
