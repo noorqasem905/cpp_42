@@ -16,6 +16,7 @@
 # include "Contacts.hpp"
 # include <iostream>
 # include <string>
+#include <cctype>
 # include <iomanip>
 
 class PhoneBook 
