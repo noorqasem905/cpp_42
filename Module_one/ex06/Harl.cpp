@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 15:11:11 by nqasem            #+#    #+#             */
-/*   Updated: 2025/10/09 15:04:08 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/10/09 15:49:03 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,17 @@ void	Harl::complain(std::string level)
 			switch (har_function[i].level_index)
 			{
 				case 0:
-					(this->*har_function[0].func)();
-				case 1:
-					(this->*har_function[1].func)();
-				case 2:
-					(this->*har_function[2].func)();
-				case 3:
-					(this->*har_function[3].func)();
-					break;
+						(this->*har_function[0].func)();
+						/* fall through */
+					case 1:
+						(this->*har_function[1].func)();
+						/* fall through */
+					case 2:
+						(this->*har_function[2].func)();
+						/* fall through */
+					case 3:
+						(this->*har_function[3].func)();
+						break;
 				default:
 					std::cout << "No matching level found." << std::endl;
 					break;

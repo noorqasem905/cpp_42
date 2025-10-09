@@ -1,18 +1,18 @@
-CC =  c++ 
+CXX =  c++ 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 ARFLAGS = rcs
 NAME = zombie
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 all: $(NAME)
 
 OBJS =  $(SRCS:.cpp=.o)
 
 %.o : %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@
+	$(CXX) $(CFLAGS) $(OBJS) -o $@
 clean:
 	rm -f $(OBJS)
 

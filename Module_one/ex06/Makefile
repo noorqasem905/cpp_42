@@ -1,10 +1,9 @@
 CC =  c++ 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 ARFLAGS = rcs
-NAME = zombie
+NAME = harlFilter
 
-SRCS = main.cpp \
-		Harl.cpp \
+SRCS = main.cpp Harl.cpp
 
 all: $(NAME)
 
