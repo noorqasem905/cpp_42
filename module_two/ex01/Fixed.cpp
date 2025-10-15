@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:59:10 by nqasem            #+#    #+#             */
-/*   Updated: 2025/10/13 19:24:15 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/10/15 20:44:33 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,16 @@ Fixed::Fixed(float const float_num)
 {
     std::cout<< "Float constructor called" <<std::endl;
     fixed_point =  roundf(float_num * (1 << fractional_bits));
+    std::cout << "Fixed point value is " << fixed_point << std::endl;
 }
 
 int Fixed::getRawBits( void ) const
 {
-    std::cout<< "getRawBits member function called" <<std::endl;
     return fixed_point;
 }
 
 void Fixed::setRawBits( int const raw )
 {
-    std::cout<< "setRawBits member function called" <<std::endl;
     fixed_point = raw;  
 }
 
