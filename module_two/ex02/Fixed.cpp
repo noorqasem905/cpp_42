@@ -36,7 +36,6 @@ Fixed::Fixed(int const int_num)
 Fixed::Fixed(float const float_num)
 {
     fixed_point =  roundf(float_num * (1 << fractional_bits));
-    std::cout << "Fixed point value is " << fixed_point << std::endl;
 }
 
 int Fixed::getRawBits( void ) const
@@ -139,6 +138,7 @@ Fixed	Fixed::operator/( const Fixed &src ) const
 Fixed	&Fixed::operator++( void )
 {
     ++fixed_point;
+
     return *this;
 }
 
