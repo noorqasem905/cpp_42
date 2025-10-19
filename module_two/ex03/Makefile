@@ -1,10 +1,8 @@
 CXX =  c++ 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 ARFLAGS = rcs
-NAME = zombie
-
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
-
+NAME = fixed
+SRCS = main.cpp Fixed.cpp
 all: $(NAME)
 
 OBJS =  $(SRCS:.cpp=.o)
