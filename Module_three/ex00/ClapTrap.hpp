@@ -6,21 +6,22 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 21:06:56 by nqasem            #+#    #+#             */
-/*   Updated: 2025/10/19 21:17:04 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/10/20 20:00:01 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
-
+#include <string>
+#include <iostream>
 
 class  ClapTrap
 {
     private:
         std::string name;
-        int hitpoints;
-        int energy_points;
-        int attack_damage;
+        unsigned int hitpoints;
+        unsigned int energy_points;
+        unsigned int attack_damage;
 
     public:
         ClapTrap();
