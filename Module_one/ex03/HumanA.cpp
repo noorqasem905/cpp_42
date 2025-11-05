@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 20:26:56 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/29 16:14:43 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/05 13:37:04 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #include <iostream>
 #include <string>
 #include "HumanA.hpp"
+
+HumanA::~HumanA()
+{
+}
 
 HumanA::HumanA(const std::string& name, Weapon& weapon)
 {
@@ -23,6 +27,5 @@ HumanA::HumanA(const std::string& name, Weapon& weapon)
 
 void HumanA::attack() const
 {
-	std::cout << name << "-> ";
-	std::cout << weapon->getType() << std::endl;
+	std::cout << name << " attacks with their " << weapon->getType() << std::endl;
 }

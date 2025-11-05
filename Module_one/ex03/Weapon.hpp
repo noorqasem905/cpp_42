@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 20:15:15 by nqasem            #+#    #+#             */
-/*   Updated: 2025/07/29 16:04:42 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/05 13:50:53 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Weapon
     private:
         std::string type;
     public:
+        ~Weapon();
         Weapon(const std::string& type);
         const std::string& getType() const;
         void setType(const std::string type);
