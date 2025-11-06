@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/19 21:07:24 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/05 19:21:52 by nqasem           ###   ########.fr       */
+/*   Created: 2025/11/05 19:24:36 by nqasem            #+#    #+#             */
+/*   Updated: 2025/11/05 21:10:51 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
+
 #include "ClapTrap.hpp"
-#include <iostream>
 
-
-int	main()
+class ScavTrap: public ClapTrap
 {
-	ClapTrap robot1("K9");
-	ClapTrap robot2("6-XE");
+    public:
+        ScavTrap(std::string name);
+        ~ScavTrap();
+        ScavTrap();
+        void guardGate();
+        void attack(const std::string& target);
 
-	robot1.attack("6-XE");
-	robot2.takeDamage(2);
-	robot2.beRepaired(2);
-	robot2.attack("K9");
-	robot1.takeDamage(2);
-	robot1.beRepaired(2);
-	robot1.beRepaired(2);
-	robot1.takeDamage(12);
-	robot1.takeDamage(2);
-	std::cout << "Robot2 Hitpoints: " << robot1.getHitPoints() << std::endl;
+        
+};
 
-	return 0;
-}
+#endif

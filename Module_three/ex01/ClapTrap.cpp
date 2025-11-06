@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 21:06:53 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/05 19:16:47 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/06 17:42:55 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,31 @@ ClapTrap::ClapTrap(std::string name)
     attack_damage = 0;
 }
 
+ClapTrap::ClapTrap(std::string name, unsigned int hitpoints, unsigned int energy_points, unsigned int attack_damage)
+{
+    std::cout << "Parameterized constructor called" << std::endl;
+    this->name = name;
+    this->hitpoints = hitpoints;
+    this->energy_points = energy_points;
+    this->attack_damage = attack_damage;
+}
+
+ClapTrap::ClapTrap(unsigned int hitpoints, unsigned int energy_points, unsigned int attack_damage)
+{
+    std::cout << "Parameterized constructor called" << std::endl;
+    this->name = "Dufault_ClapTrap";
+    this->hitpoints = hitpoints;
+    this->energy_points = energy_points;
+    this->attack_damage = attack_damage;
+}
+
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "ClapTrap Destructor called" << std::endl;
+}
+
+std::string ClapTrap::getName() const{
+    return name;
 }
 
 int ClapTrap::getHitPoints() const{
@@ -112,23 +134,26 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (10 < hitpoints + amount)
-        amount = 10 - hitpoints;
-    if (hitpoints > 0 && energy_points > 0 && hitpoints < 10)
-    {
-        hitpoints += amount;
-        energy_points--;
-        std::cout << "\e[0;32mClapTrap " << name << " is repaired for " << amount << " hitpoints!\e[0m" << std::endl;
-    }
-    else if (hitpoints <= 0)
+    if (hitpoints <= 0)
     {
         std::cout << "\e[0;31mClapTrap " << name << " is out of hitpoints!\e[0m" << std::endl;
+        return;
+    }
+    if (energy_points > 0)
+    {
+        std::cout << "\e[0;32mClapTrap " << name << " is repaired for " << amount << " hitpoints!\e[0m" << std::endl;
+        energy_points--;
+        hitpoints += amount;
+        if (energy_points <= 0)
+        {
+            std::cout << "\e[0;31mClapTrap " << name << " is out of energy!\e[0m" << std::endl;
+        }
     }
     else if (energy_points <= 0)
     {
         std::cout << "\e[0;31mClapTrap " << name << " is out of energy!\e[0m" << std::endl;
     }
-    else if (hitpoints >= 10)
+    else
     {
         std::cout << "\e[0;31mClapTrap " << name << " is already at full health!\e[0m" << std::endl;
     }
