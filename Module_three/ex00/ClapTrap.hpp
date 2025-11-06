@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 21:06:56 by nqasem            #+#    #+#             */
-/*   Updated: 2025/10/20 20:00:01 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/06 18:28:28 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class  ClapTrap
         ClapTrap();
         ClapTrap(std::string name);
         ~ClapTrap();
+        ClapTrap &operator=(const ClapTrap &other);
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);

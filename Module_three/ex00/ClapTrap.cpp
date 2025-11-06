@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 21:06:53 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/05 19:16:47 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/06 18:27:48 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,4 +132,17 @@ void ClapTrap::beRepaired(unsigned int amount)
     {
         std::cout << "\e[0;31mClapTrap " << name << " is already at full health!\e[0m" << std::endl;
     }
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
+{
+    std::cout << "ClapTrap Assignment operator called" << std::endl;
+    if (this != &other)
+    {
+        name = other.name;
+        hitpoints = other.hitpoints;
+        energy_points = other.energy_points;
+        attack_damage = other.attack_damage;
+    }
+    return *this;
 }
