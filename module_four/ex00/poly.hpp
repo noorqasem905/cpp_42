@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   poly.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/05 19:24:36 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/10 16:59:19 by nqasem           ###   ########.fr       */
+/*   Created: 2025/11/09 21:21:21 by nqasem            #+#    #+#             */
+/*   Updated: 2025/11/09 21:24:34 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifdef POLY_HPP
+#define POLY_HPP
 
-#include "ClapTrap.hpp"
+#include <iostream>
 
-class ScavTrap: public ClapTrap
+class Animal
 {
     public:
-        ScavTrap(std::string name);
-        ~ScavTrap();
-        ScavTrap();
-        void guardGate();
-        ScavTrap(const ScavTrap &other);
-        ScavTrap &operator=(const ScavTrap &other);
-        void attack(const std::string& target);    
-};
+        Animal();
+        ~Animal();
+        protected:
+         std::string type;
 
+    
+}
 
 #endif

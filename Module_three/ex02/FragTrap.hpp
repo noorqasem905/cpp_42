@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:48:19 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/06 17:49:11 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/10 16:54:27 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ class FragTrap : public ClapTrap
 {
     public:
     FragTrap(std::string name);
+    FragTrap &operator=(const FragTrap &other);
+    FragTrap(const FragTrap& other);
     FragTrap();
     ~FragTrap();
     void highFivesGuys();

@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 21:06:56 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/06 18:29:13 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/10 17:18:54 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class  ClapTrap
     public:
         ClapTrap();
         ClapTrap(std::string name);
+        ClapTrap(const ClapTrap &other);
         ClapTrap(std::string name, unsigned int hitpoints,
                 unsigned int energy_points, unsigned int attack_damage);
         ClapTrap(unsigned int hitpoints,

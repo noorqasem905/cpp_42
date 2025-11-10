@@ -1,17 +1,18 @@
-CXX =  c++ 
+CC =  c++ 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 ARFLAGS = rcs
-NAME = FragTrap
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+NAME = zombie
+
+SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 all: $(NAME)
 
 OBJS =  $(SRCS:.cpp=.o)
 
 %.o : %.cpp
-	$(CXX) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CXX) $(CFLAGS) $(OBJS) -o $@
+	$(CC) $(CFLAGS) $(OBJS) -o $@
 clean:
 	rm -f $(OBJS)
 

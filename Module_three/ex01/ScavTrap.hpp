@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 19:24:36 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/05 21:10:51 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/10 17:19:39 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ class ScavTrap: public ClapTrap
         ~ScavTrap();
         ScavTrap();
         void guardGate();
-        void attack(const std::string& target);
-
-        
+        ScavTrap(const ScavTrap &other);
+        ScavTrap &operator=(const ScavTrap &other);
+        void attack(const std::string& target);    
 };
 
 #endif
