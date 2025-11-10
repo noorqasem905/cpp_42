@@ -1,10 +1,9 @@
 CC =  c++ 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 ARFLAGS = rcs
-NAME = zombie
+NAME = Animal
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
-all: $(NAME)
+SRCS = main.cpp Dog.cpp Cat.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJS =  $(SRCS:.cpp=.o)
 

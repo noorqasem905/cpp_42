@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   poly.hpp                                           :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/09 21:21:21 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/09 21:24:34 by nqasem           ###   ########.fr       */
+/*   Created: 2025/11/10 18:27:32 by nqasem            #+#    #+#             */
+/*   Updated: 2025/11/10 18:58:23 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifdef POLY_HPP
-#define POLY_HPP
+#include "Animal.hpp"
 
-#include <iostream>
-
-class Animal
+Animal::Animal()
 {
-    public:
-        Animal();
-        ~Animal();
-        protected:
-         std::string type;
-
-    
+    std::cout << "\e[0;33mAnimal constructor called\e[0m" << std::endl;
+    type = "Animal";
 }
 
-#endif
+Animal::~Animal()
+{
+    std::cout << "\e[0;31mAnimal destructor called\e[0m" << std::endl;
+}
+
+void Animal::makeSound() const
+{
+    std::cout << "\e[0;33mAnimal sound!\e[0m" << std::endl;
+}
+
+std::string Animal::getType() const
+{
+    return type;
+}

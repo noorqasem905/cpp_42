@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/06 17:48:19 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/10 19:33:17 by nqasem           ###   ########.fr       */
+/*   Created: 2025/11/10 18:29:54 by nqasem            #+#    #+#             */
+/*   Updated: 2025/11/10 18:58:45 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
-#include "ClapTrap.hpp"
+#include "Cat.hpp"  
 
-class FragTrap : public ClapTrap
+Cat::Cat()
 {
-    public:
-        FragTrap(std::string name);
-        FragTrap &operator=(const FragTrap &other);
-        FragTrap(const FragTrap& other);
-        FragTrap();
-        ~FragTrap();
-    void highFivesGuys();
-};
+    std::cout << "\e[0;33mCat constructor called\e[0m" <<  std::endl;
+    type = "Cat";
+}
 
-#endif
+Cat::~Cat()
+{
+    std::cout << "\e[0;31mCat destructor called\e[0m" <<  std::endl;
+}
+
+void Cat::makeSound() const
+{
+    std::cout << "\e[0;33mMeow Meow!\e[0m" << std::endl;
+}

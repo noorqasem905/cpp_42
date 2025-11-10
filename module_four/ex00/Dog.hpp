@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/06 17:48:19 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/10 19:33:17 by nqasem           ###   ########.fr       */
+/*   Created: 2025/11/10 18:29:58 by nqasem            #+#    #+#             */
+/*   Updated: 2025/11/10 18:40:26 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
-#include "ClapTrap.hpp"
+#ifndef DOG_HPP
+#define DOG_HPP
 
-class FragTrap : public ClapTrap
+#include "Animal.hpp"
+
+class Dog : public Animal
 {
     public:
-        FragTrap(std::string name);
-        FragTrap &operator=(const FragTrap &other);
-        FragTrap(const FragTrap& other);
-        FragTrap();
-        ~FragTrap();
-    void highFivesGuys();
+        Dog();
+        ~Dog();
+        void makeSound() const;
 };
 
 #endif

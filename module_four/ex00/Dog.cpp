@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/06 17:48:19 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/10 19:33:17 by nqasem           ###   ########.fr       */
+/*   Created: 2025/11/10 18:29:56 by nqasem            #+#    #+#             */
+/*   Updated: 2025/11/10 18:57:37 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
-#include "ClapTrap.hpp"
+#include "Dog.hpp"
 
-class FragTrap : public ClapTrap
+Dog::Dog()
 {
-    public:
-        FragTrap(std::string name);
-        FragTrap &operator=(const FragTrap &other);
-        FragTrap(const FragTrap& other);
-        FragTrap();
-        ~FragTrap();
-    void highFivesGuys();
-};
+    std::cout << "\e[0;33mDog constructor called\e[0m" <<  std::endl;
+    type = "Dog";
+}
 
-#endif
+Dog::~Dog()
+{
+    std::cout << "\e[0;31mDog destructor called\e[0m" <<  std::endl;
+}
+
+void Dog::makeSound() const
+{
+    std::cout << "\e[0;33mWoof Woof!\e[0m" << std::endl;
+}
