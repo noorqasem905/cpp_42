@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:48:35 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/12 21:27:33 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/12 21:53:09 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <string>
+#include "Brain.hpp"
+#include "Animal.hpp"
 
 class WrongAnimal
 {

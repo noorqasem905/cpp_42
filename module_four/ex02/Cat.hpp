@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:29:51 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/12 21:28:49 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/12 21:58:33 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Cat : public Animal
         ~Cat();
         Cat(const Cat& other);
         Cat& operator=(const Cat& other);
-        void makeSound() const override;
+    void makeSound() const;
     private:
         Brain* brain;
 };

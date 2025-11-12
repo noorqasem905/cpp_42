@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:29:54 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/12 21:22:24 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/12 21:51:41 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,9 @@ void Cat::makeSound() const
 }
 
 Cat::Cat(const Cat& other)
+    : Animal(other), brain(new Brain(*other.brain))
 {
     std::cout << "\e[0;33mCat copy constructor called\e[0m" <<  std::endl;
-    type = other.type;
-    brain = new Brain(*other.brain);
 }
 
 Cat& Cat::operator=(const Cat& other)

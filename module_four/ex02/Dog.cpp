@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:29:56 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/12 21:28:45 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/12 21:56:22 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ void Dog::makeSound() const
     std::cout << "\e[0;33mWoof Woof!\e[0m" << std::endl;
 }
 
-Dog::Dog(const Dog& other)
+Dog::Dog(const Dog& other)  : Animal(other)
 {
     std::cout << "\e[0;33mDog copy constructor called\e[0m" <<  std::endl;
-    type = other.type;
     brain = new Brain(*other.brain);
 }
 

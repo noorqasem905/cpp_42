@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:48:37 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/12 21:27:50 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/12 21:53:24 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void WrongAnimal::makeSound() const
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& other)
+
 {
     std::cout << "\e[0;33mWrongAnimal copy constructor called\e[0m" << std::endl;
     type = other.type;

@@ -6,11 +6,12 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:29:56 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/12 21:27:24 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/12 21:51:21 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+#include "Brain.hpp"
 
 Dog::Dog()
 {
@@ -31,10 +32,9 @@ void Dog::makeSound() const
 }
 
 Dog::Dog(const Dog& other)
+    : Animal(other), brain(new Brain(*other.brain))
 {
     std::cout << "\e[0;33mDog copy constructor called\e[0m" <<  std::endl;
-    type = other.type;
-    brain = new Brain(*other.brain);
 }
 
 Dog& Dog::operator=(const Dog& other)
