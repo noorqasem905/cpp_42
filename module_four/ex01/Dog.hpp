@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:29:58 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/12 15:34:57 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/12 21:22:08 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class Dog : public Animal
     public:
         Dog();
         ~Dog();
+        Dog(const Dog& other);
+        Dog& operator=(const Dog& other);
         void makeSound() const;
     private:
         Brain* brain;

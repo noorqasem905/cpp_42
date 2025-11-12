@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 21:21:21 by nqasem            #+#    #+#             */
-/*   Updated: 2025/11/12 18:26:47 by nqasem           ###   ########.fr       */
+/*   Updated: 2025/11/12 21:29:03 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ class Animal
     public:
         Animal();
         virtual ~Animal();
+        Animal(const Animal& other);
+        Animal& operator=(const Animal& other);
         std::string getType() const;
         virtual void makeSound() const = 0;
     protected:
