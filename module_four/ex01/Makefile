@@ -3,6 +3,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 ARFLAGS = rcs
 NAME = Animal
 
+all: $(NAME)
 SRCS = main.cpp Dog.cpp Cat.cpp Animal.cpp Brain.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJS =  $(SRCS:.cpp=.o)
