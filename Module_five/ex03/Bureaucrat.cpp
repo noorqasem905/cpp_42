@@ -6,62 +6,73 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 14:22:17 by nqasem            #+#    #+#             */
-/*   Updated: 2025/12/25 17:42:11 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/02/22 15:20:52 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"  // Changed from Form.hpp
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name), grade(grade)
 {
-	if (grade < 1)
-	{
-		throw GradeTooHighException();
-	}
-	else if (grade > 150)
-	{
-		throw GradeTooLowException();
-	}
+    if (grade < 1)
+    {
+        throw GradeTooHighException();
+    }
+    else if (grade > 150)
+    {
+        throw GradeTooLowException();
+    }
 }
 
 int Bureaucrat::getGrade() const
 {
-	return grade;
+    return grade;
 }
 
 std::string Bureaucrat::getName() const
 {
-	return name;
+    return name;
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)  // Changed from Form
 {
-	try {
-		form.beSigned(*this);
-		std::cout << name << " signed " << form.getName() << std::endl;
-	} catch (const std::exception &e) {
-		std::cout << name << " couldn't sign " << form.getName()
-				  << " because " << e.what() << std::endl;
-	}
+    try {
+        form.beSigned(*this);
+        std::cout << name << " signed " << form.getName() << std::endl;
+    } catch (const std::exception &e) {
+        std::cout << name << " couldn't sign " << form.getName()
+                  << " because " << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(const AForm& form)  // Added this method
+{
+    try {
+        form.execute(*this);
+        std::cout << name << " executed " << form.getName() << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << name << " couldn't execute " << form.getName()
+                  << " because " << e.what() << std::endl;
+    }
 }
 
 void Bureaucrat::incrementGrade()
 {
-	if (grade <= 1)
-	{
-		throw GradeTooHighException();
-	}
-	grade--;
+    if (grade <= 1)
+    {
+        throw GradeTooHighException();
+    }
+    grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
-	if (grade >= 150)
-	{
-		throw GradeTooLowException();
-	}
-	grade++;
+    if (grade >= 150)
+    {
+        throw GradeTooLowException();
+    }
+    grade++;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -78,18 +89,18 @@ Bureaucrat::GradeTooLowException::~GradeTooLowException() throw()
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat)
 {
-	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
-	return out;
+    out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+    return out;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "Grade is too high! (minimum grade is 1)";
+    return "Grade is too high! (minimum grade is 1)";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "Grade is too low! (maximum grade is 150)";
+    return "Grade is too low! (maximum grade is 150)";
 }
 
 

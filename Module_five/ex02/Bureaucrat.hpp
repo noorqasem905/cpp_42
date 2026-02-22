@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 14:21:13 by nqasem            #+#    #+#             */
-/*   Updated: 2025/12/31 19:30:02 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/02/22 15:04:05 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <exception>
 
 // Forward declaration
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -29,7 +29,8 @@ class Bureaucrat
 		Bureaucrat(const std::string name, int grade);
 		~Bureaucrat();
 		std::string getName() const;
-		void signForm(Form &form);
+		void signForm(AForm &form);
+		void executeForm(const AForm& form);
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();

@@ -6,25 +6,24 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 20:29:30 by nqasem            #+#    #+#             */
-/*   Updated: 2025/12/25 20:29:45 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/02/22 15:10:57 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
 #define PRESIDENTIALPARDONFORM_HPP
-#include "Form.hpp"
+#include "AForm.hpp"  // Changed from Form.hpp
 
-class PresidentialPardonForm : public Form
+class PresidentialPardonForm : public AForm  // Changed from Form
 {
 private:
-	std::string target;
+    std::string target;
 public:
+    PresidentialPardonForm(const std::string &target);
+    PresidentialPardonForm(const PresidentialPardonForm &other);
+    PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
+    ~PresidentialPardonForm();
 
-	PresidentialPardonForm(const std::string &target);
-	PresidentialPardonForm(const PresidentialPardonForm &other);
-	PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
-	~PresidentialPardonForm();
-
-	void execute(const Bureaucrat &executor) const;
+    void execute(const Bureaucrat &executor) const;
 };
 #endif

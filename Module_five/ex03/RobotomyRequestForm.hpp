@@ -6,19 +6,19 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 20:28:19 by nqasem            #+#    #+#             */
-/*   Updated: 2025/12/31 21:39:45 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/02/22 15:18:07 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"  // Changed from Form.hpp
 #include "Bureaucrat.hpp"
 #include <cstdlib>
 #include <ctime>
 
-class RobotomyRequestForm : public Form
+class RobotomyRequestForm : public AForm  // Changed from Form
 {
 private:
     std::string target;

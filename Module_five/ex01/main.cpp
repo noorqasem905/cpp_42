@@ -6,12 +6,12 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:30:00 by nqasem            #+#    #+#             */
-/*   Updated: 2025/12/25 18:53:19 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/02/22 14:15:11 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
@@ -25,18 +25,73 @@
 
 int main()
 {
-	Bureaucrat Ahmed("Ahmed", 75);
-	Bureaucrat Talal("Talal", 150);
-	Bureaucrat Abd("Abd", 2);
-	Bureaucrat Final("Final", 149);
+    std::cout << BOLD BLUE "=== testing Form Creation ===" RESET << std::endl;
+    
+    try {
+        // correct form creation
+        Form formA("Tax Form", 50, 25);
+        std::cout << GREEN "✓ " RESET << formA << std::endl;
 
-	Form formA("FormA", 50, 100);
-	Form formB("FormB", 100, 150);
+        // incorrect form creation (high)
+        Form invalidForm1("Invalid", 0, 25);
+    } catch (const std::exception& e) {
+        std::cout << RED "✗ " RESET << e.what() << std::endl;
+    }
+    
+    try {
+        //  invalid form creation (low)
+        Form invalidForm2("Invalid", 151, 25);
+    } catch (const std::exception& e) {
+        std::cout << RED "✗ " RESET << e.what() << std::endl;
+    }
+    
+    std::cout << BOLD BLUE "\n=== Testing Form Signing ===" RESET << std::endl;
+    
+    try {
+        Bureaucrat ahmed("Ahmed", 75);
+        Bureaucrat talal("Talal", 150);
+        Bureaucrat abd("Abd", 2);
+        Bureaucrat boss("Boss", 1);
 
-	Ahmed.signForm(formA);
-	Talal.signForm(formB);
-	Abd.signForm(formA);
-	Final.signForm(formB);
+        Form formA("FormA", 50, 100);
+        Form formB("FormB", 100, 150);
+        Form formC("FormC", 1, 1);
 
-    return 0;
+        std::cout << YELLOW "Initial forms:" RESET << std::endl;
+        std::cout << formA << std::endl;
+        std::cout << formB << std::endl;
+        std::cout << formC << std::endl;
+
+        std::cout << YELLOW "\nBureaucrats:" RESET << std::endl;
+        std::cout << ahmed << std::endl;
+        std::cout << talal << std::endl;
+        std::cout << abd << std::endl;
+        std::cout << boss << std::endl;
+
+        std::cout << YELLOW "\nSigning attempts:" RESET << std::endl;
+        
+        // Ahmed (grade 75) tries to sign FormA (requires grade 50) - should fail
+        ahmed.signForm(formA);
+        
+        // Talal (grade 150) tries to sign FormB (requires grade 100) - should fail
+        talal.signForm(formB);
+        
+        // Abd (grade 2) tries to sign FormA (requires grade 50) - should succeed
+        abd.signForm(formA);
+        
+        // Boss (grade 1) tries to sign FormB (requires grade 100) - should succeed
+        boss.signForm(formB);
+        
+        // Try to sign already signed form
+        abd.signForm(formA);
+        
+        std::cout << YELLOW "\nFinal form states:" RESET << std::endl;
+        std::cout << formA << std::endl;
+        std::cout << formB << std::endl;
+
+    } catch (const std::exception& e) {
+        std::cout << RED "Error: " RESET << e.what() << std::endl;
+    }
+    
+    return	0;
 }
