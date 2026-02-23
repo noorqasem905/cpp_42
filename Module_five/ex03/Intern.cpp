@@ -6,14 +6,14 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/01 13:49:23 by nqasem            #+#    #+#             */
-/*   Updated: 2026/02/22 15:12:32 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/02/23 14:18:22 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
-#include "ShrubberyCreationForm.hpp"  // Add this
-#include "RobotomyRequestForm.hpp"  // Add this
-#include "PresidentialPardonForm.hpp"  // Add this
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 Intern::Intern()
 {
@@ -28,7 +28,6 @@ Intern &Intern::operator=(const Intern &other)
 {
 	if (this != &other)
 	{
-		// Copy assignment logic (if needed)
 	}
 	return *this;
 }
@@ -37,9 +36,9 @@ Intern::~Intern()
 {
 }
 
-AForm *Intern::makeForm(const std::string &formName, const std::string &target) const  // Changed return type
+AForm *Intern::makeForm(const std::string &formName, const std::string &target) const
 {
-    if (formName == "shrubbery creation")  // Add this case
+    if (formName == "shrubbery creation")
         return new ShrubberyCreationForm(target);
     else if (formName == "robotomy request")
         return new RobotomyRequestForm(target);

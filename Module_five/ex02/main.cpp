@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:30:00 by nqasem            #+#    #+#             */
-/*   Updated: 2026/02/22 15:11:20 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/02/23 12:46:01 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int main()
     std::cout << BOLD BLUE "=== Testing Form Creation and Execution ===" RESET << std::endl;
     
     try {
-        // Create bureaucrats with different grades
         Bureaucrat ahmed("Ahmed", 75);
         Bureaucrat talal("Talal", 150);
         Bureaucrat abd("Abd", 2);
