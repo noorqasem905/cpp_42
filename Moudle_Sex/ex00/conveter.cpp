@@ -44,7 +44,7 @@ bool ScalarConverter::isInt(const std::string &literal) {
 }
 
 bool ScalarConverter::isFloat(const std::string &literal) {
-    if (literal.empty() || literal[literal.length() - 1] != 'f')  // Replace .back() with array access
+    if (literal.empty() || literal[literal.length() - 1] != 'f')
         return false;
     std::string temp = literal.substr(0, literal.length() - 1);
     char* endptr;
@@ -59,7 +59,7 @@ bool ScalarConverter::isDouble(const std::string &literal) {
 }
 
 void ScalarConverter::convert(const std::string& literal) {
-    ScalarConverter converter;  // Create an instance
+    ScalarConverter converter;
     if (converter.isSpecialCase(literal)) {
         converter.printConversion(literal);
         return;
