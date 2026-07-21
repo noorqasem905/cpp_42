@@ -1,22 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/25 17:18:17 by nqasem            #+#    #+#             */
-/*   Updated: 2025/12/25 17:42:11 by nqasem           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef FORM_HPP
 #define FORM_HPP
 
 #include <string>
 #include <iostream>
+#include <exception>
 
-// Forward declaration
 class Bureaucrat;
 
 class Form
@@ -26,6 +14,8 @@ private:
     bool isSigned;
     const int signGrade;
     const int execGrade;
+
+    Form();
 
 public:
     Form(const std::string &name, int signGrade, int execGrade);
@@ -39,6 +29,18 @@ public:
     int getExecGrade() const;
 
     void beSigned(const Bureaucrat &bureaucrat);
+
+    class GradeTooHighException : public std::exception
+    {
+    public:
+        virtual const char* what() const throw();
+    };
+
+    class GradeTooLowException : public std::exception
+    {
+    public:
+        virtual const char* what() const throw();
+    };
 };
 
 std::ostream &operator<<(std::ostream &out, const Form &form);

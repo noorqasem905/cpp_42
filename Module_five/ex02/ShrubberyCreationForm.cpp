@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 19:05:34 by nqasem            #+#    #+#             */
-/*   Updated: 2026/02/22 15:14:37 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/07/20 19:24:29 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,24 +36,18 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout << "ShrubberyCreationForm Destructor called" << std::endl;
 }
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
-    if (this->getIsSigned() == false)
-        throw std::runtime_error("Form is not signed.");
-    if (executor.getGrade() > this->getExecGrade())
-        throw std::runtime_error("Bureaucrat grade too low to execute the form.");
+    // فحص الشروط عبر الأب
+    this->checkExecutionRequirements(executor);
     
-    // Fix: Convert string to const char* using .c_str()
     std::string filename = target + "_shrubbery";
     std::ofstream outfile(filename.c_str());
     
     if (!outfile)
-    {
         throw std::runtime_error("Failed to create the output file.");
-    }
     
     outfile << "       _-_\n"
                "    /~~   ~~\\\n"
@@ -66,9 +60,4 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
                "      // \\\\\n";
     
     outfile.close();
-    if (outfile.fail())
-    {
-        throw std::runtime_error("Failed to write to the output file.");
-    }
 }
-

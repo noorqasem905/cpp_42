@@ -6,13 +6,13 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 14:22:17 by nqasem            #+#    #+#             */
-/*   Updated: 2025/12/25 16:23:17 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/07/21 11:44:12 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name), grade(grade)
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(grade)
 {
 	if (grade < 1)
 	{
@@ -72,15 +72,31 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat)
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "Grade is too high! (minimum grade is 1)";
+	return "Grade is too high! (minimum grade is 150)";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "Grade is too low! (maximum grade is 150)";
+	return "Grade is too low! (maximum grade is 1)";
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.grade)
+{
+}
 
+// Copy Assignment Operator (OCF)
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+	if (this != &other)
+	{
+		this->grade = other.grade;
+	}
+	return *this;
+}
+
+Bureaucrat::Bureaucrat() : name("Default"), grade(150)
+{
+}
 
 // Exception in cpp in is  a mechanism to detect and manage errors runtime
 

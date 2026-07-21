@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 14:22:17 by nqasem            #+#    #+#             */
-/*   Updated: 2025/12/25 17:42:11 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/07/21 11:43:39 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,12 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat)
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "Grade is too high! (minimum grade is 1)";
+	return "Grade is too high! (minimum grade is 150)";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "Grade is too low! (maximum grade is 150)";
+	return "Grade is too low! (maximum grade is 1)";
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 14:21:13 by nqasem            #+#    #+#             */
-/*   Updated: 2026/02/22 15:04:05 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/07/21 11:40:56 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,43 +16,46 @@
 #include <iostream>
 #include <exception>
 
-// Forward declaration
-class AForm;
+class AForm; // Forward Declaration
 
 class Bureaucrat
 {
+private:
+	const std::string name;
+	int grade;
+	Bureaucrat(); // Private Default Constructor
 
-	private:
-		const std::string 	name;
-		int 				grade;
-	public:
-		Bureaucrat(const std::string name, int grade);
-		~Bureaucrat();
-		std::string getName() const;
-		void signForm(AForm &form);
-		void executeForm(const AForm& form);
-		int getGrade() const;
-		void incrementGrade();
-		void decrementGrade();
+public:
+	Bureaucrat(const std::string &name, int grade);
+	Bureaucrat(const Bureaucrat &other);
+	Bureaucrat &operator=(const Bureaucrat &other);
+	~Bureaucrat();
 
-		class GradeTooHighException : public std::exception
-		{
-			public:
-				const char* what() const throw();
-				~GradeTooHighException() throw();
-		};
+	std::string getName() const;
+	int getGrade() const;
 
-		class GradeTooLowException : public std::exception
-		{
-			public:
-				const char* what() const throw();
-				~GradeTooLowException() throw();
-		};
+	void incrementGrade();
+	void decrementGrade();
 
+	// أضف هاتين الدالتين هنا:
+	void signForm(AForm &form);
+	void executeForm(const AForm &form);
+	
+	class GradeTooHighException : public std::exception
+	{
+		public:
+			const char* what() const throw();
+			~GradeTooHighException() throw();
+	};
+
+	class GradeTooLowException : public std::exception
+	{
+		public:
+			const char* what() const throw();
+			~GradeTooLowException() throw();
+	};
 };
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat);
 
-
-
-#endif // BUREAUCRAT_HPP
+#endif

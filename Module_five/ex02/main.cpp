@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:30:00 by nqasem            #+#    #+#             */
-/*   Updated: 2026/02/23 12:46:01 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/07/20 19:25:08 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 int main()
 {
     std::cout << BOLD BLUE "=== Testing Form Creation and Execution ===" RESET << std::endl;
-    
+    srand(static_cast<unsigned int>(time(NULL)));
     try {
         Bureaucrat ahmed("Ahmed", 75);
         Bureaucrat talal("Talal", 150);

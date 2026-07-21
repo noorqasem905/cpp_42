@@ -1,20 +1,9 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 18:47:12 by nqasem            #+#    #+#             */
-/*   Updated: 2026/02/22 15:11:41 by nqasem           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
 #include <string>
 #include <iostream>
+#include <exception>
 
 class Bureaucrat;
 
@@ -32,8 +21,9 @@ public:
     AForm &operator=(const AForm &other);
     virtual ~AForm();
 
-    // Pure virtual function makes this an abstract class
     virtual void execute(const Bureaucrat &executor) const = 0;
+    
+     void checkExecutionRequirements(const Bureaucrat &executor) const;
 
     const std::string &getName() const;
     bool getIsSigned() const;
@@ -42,17 +32,22 @@ public:
     
     void beSigned(const Bureaucrat &bureaucrat);
 
-    // Exception classes
     class GradeTooHighException : public std::exception
     {
     public:
-        const char* what() const throw();
+        virtual const char* what() const throw();
     };
 
     class GradeTooLowException : public std::exception
     {
     public:
-        const char* what() const throw();
+        virtual const char* what() const throw();
+    };
+
+    class FormNotSignedException : public std::exception
+    {
+    public:
+        virtual const char* what() const throw();
     };
 };
 

@@ -6,19 +6,19 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 20:28:42 by nqasem            #+#    #+#             */
-/*   Updated: 2026/02/22 15:18:49 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/07/20 19:41:21 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target) :
-AForm("RobotomyRequestForm", 72, 45), target(target)  // Make sure this inherits from AForm, not Form
+AForm("RobotomyRequestForm", 72, 45), target(target)
 {
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) :
-AForm(other), target(other.target)  // Make sure this inherits from AForm, not Form
+AForm(other), target(other.target)
 {
 }
 
@@ -26,7 +26,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 {
     if (this != &other)
     {
-        AForm::operator=(other);  // Make sure this calls AForm, not Form
+        AForm::operator=(other);
         target = other.target;
     }
     return *this;
@@ -34,18 +34,13 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << "RobotomyRequestForm Destructor called" << std::endl;
 }
 
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
-    if (this->getIsSigned() == false)
-        throw std::runtime_error("Form is not signed.");
-    if (executor.getGrade() > this->getExecGrade())
-        throw std::runtime_error("Bureaucrat grade too low to execute the form.");
+     this->checkExecutionRequirements(executor);
         
-    std::cout << "* drilling noises *" << std::endl;
-    srand(static_cast<unsigned int>(time(NULL))); // Changed from nullptr to NULL
+    std::cout << "* Make some drilling noises *" << std::endl;
     if (rand() % 2 == 0)
     {
         std::cout << "Bzzzz... " << target << " has been robotomized successfully!" << std::endl;
