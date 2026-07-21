@@ -1,17 +1,18 @@
-CC =  c++ 
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-ARFLAGS = rcs
-NAME = serialize
-all: $(NAME)
-SRCS = main.cpp Serialization.cpp
+NAME = identify
 
-OBJS =  $(SRCS:.cpp=.o)
+SRCS = main.cpp identify.cpp
+OBJS = $(SRCS:.cpp=.o)
+
+all: $(NAME)
 
 %.o : %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $@
+
 clean:
 	rm -f $(OBJS)
 

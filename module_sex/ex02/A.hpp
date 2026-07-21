@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/26 15:23:45 by nqasem            #+#    #+#             */
-/*   Updated: 2026/02/26 15:30:53 by nqasem           ###   ########.fr       */
+/*   Created: 2026/02/26 15:29:41 by nqasem            #+#    #+#             */
+/*   Updated: 2026/07/21 14:58:14 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_HPP
-#define BASE_HPP
+#ifndef A_HPP
+#define A_HPP
 
-class Base {
-public:
-    virtual ~Base();
-};
+#include "Base.hpp"
+
+class A : public Base {};
 
 #endif

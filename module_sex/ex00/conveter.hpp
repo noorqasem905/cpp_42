@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   A.hpp                                              :+:      :+:    :+:   */
+/*   conveter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/26 15:29:41 by nqasem            #+#    #+#             */
-/*   Updated: 2026/02/26 15:31:42 by nqasem           ###   ########.fr       */
+/*   Created: 2026/02/23 14:52:54 by nqasem            #+#    #+#             */
+/*   Updated: 2026/02/23 14:56:53 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef A_HPP
-#define A_HPP
+#ifndef CONVERTER_HPP
+#define CONVERTER_HPP
 
-#include "Base.hpp"
-#include <Serialization.hpp>
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <limits>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
 
-class A : public Base {
+class ScalarConverter {
+private:
+    ScalarConverter();
+    ~ScalarConverter();
+    ScalarConverter(const ScalarConverter& other);
+    ScalarConverter& operator=(const ScalarConverter& other);
+
 public:
-	virtual ~A() {}
+    static void convert(const std::string& literal);
 };
 
 #endif
