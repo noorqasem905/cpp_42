@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 15:42:58 by nqasem            #+#    #+#             */
-/*   Updated: 2026/03/01 23:07:56 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/07/22 14:26:17 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,23 @@
 #define WHATEVER_HPP
 
 template <typename T>
-T const& swap(T const& a, T const& b)
+void swap(T& a, T& b)
 {
-    return (a < b) ? a : b;
+    T tmp = a;
+    a = b;
+    b = tmp;
 }
 
 template <typename T>
 T const& min(T const& a, T const& b)
 {
-	return (a < b) ? a : b;
+    return (a < b) ? a : b;
 }
 
 template <typename T>
 T const& max(T const& a, T const& b)
 {
-	return (a > b) ? a : b;
+    return (a > b) ? a : b;
 }
 
 #endif

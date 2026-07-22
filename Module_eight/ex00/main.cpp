@@ -6,30 +6,44 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 23:06:09 by nqasem            #+#    #+#             */
-/*   Updated: 2026/03/01 23:08:13 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/07/22 18:11:24 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "whatever.hpp"
 #include <iostream>
+#include <vector>
+#include <list>
+#include <deque>
+#include "easyfind.hpp"
 
-int main( void ) 
+int main()
 {
-	int a = 2;
-	int b = 3;
+    try {
+        std::vector<int> vec;
+        vec.push_back(10);
+        vec.push_back(20);
+        vec.push_back(30);
 
-	::swap(a, b);
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+        std::vector<int>::iterator it = easyfind(vec, 20);
+        std::cout << "Vector test: Found value " << *it << std::endl;
 
-	std::string c = "chaine1";
-	std::string d = "chaine2";
+        easyfind(vec, 99);
+    }
+    catch (const std::exception& e) {
+        std::cout << "Vector Exception: " << e.what() << std::endl;
+    }
 
-	::swap(c, d);
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+    try {
+        std::list<int> lst;
+        lst.push_back(100);
+        lst.push_back(200);
 
-	return 0;
+        std::list<int>::iterator it = easyfind(lst, 100);
+        std::cout << "List test: Found value " << *it << std::endl;
+    }
+    catch (const std::exception& e) {
+        std::cout << "List Exception: " << e.what() << std::endl;
+    }
+
+    return 0;
 }

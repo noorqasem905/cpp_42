@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 23:00:40 by nqasem            #+#    #+#             */
-/*   Updated: 2026/03/01 23:22:02 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/07/22 18:51:16 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,23 @@ public:
         for (unsigned int i = 0; i < _size; ++i)
             _data[i] = other._data[i];
     }
+
     ~Array() { delete[] _data; }
 
-    Array& operator=(const Array& other)
-    {
-        if (this != &other)
-        {
-            delete[] _data;
-            _size = other._size;
-            _data = new T[_size]();
-            for (unsigned int i = 0; i < _size; ++i)
-                _data[i] = other._data[i];
-        }
-        return *this;
-    }
+	Array& operator=(const Array& other)
+	{
+	    if (this != &other)
+	    {
+	        T* newData = new T[other._size]();
+	        for (unsigned int i = 0; i < other._size; ++i)
+	            newData[i] = other._data[i];
+		
+	        delete[] _data;
+	        _data = newData;
+	        _size = other._size;
+	    }
+	    return *this;
+	}
 
     T& operator[](unsigned int index)
     {

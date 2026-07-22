@@ -28,7 +28,6 @@ static bool isSpecialCase(const std::string& literal) {
 }
 
 void ScalarConverter::convert(const std::string& literal) {
-    // 1. معالجة الحالات الخاصة (nan, inf, ...)
     if (isSpecialCase(literal)) {
         std::cout << "char: impossible\n";
         std::cout << "int: impossible\n";
@@ -45,7 +44,6 @@ void ScalarConverter::convert(const std::string& literal) {
         return;
     }
 
-    // 2. معالجة الحرف المباشر 'a'
     if (literal.length() == 1 && !std::isdigit(literal[0])) {
         char c = literal[0];
         std::cout << "char: '" << c << "'\n";
@@ -55,11 +53,9 @@ void ScalarConverter::convert(const std::string& literal) {
         return;
     }
 
-    // 3. التحويل لقيمة double أولاً باستخدام C++98 std::strtod
     char* endptr;
     double value = std::strtod(literal.c_str(), &endptr);
 
-    // التحقق من صحة المدخل
     if (*endptr != '\0' && !(*endptr == 'f' && *(endptr + 1) == '\0')) {
         std::cout << "char: impossible\n";
         std::cout << "int: impossible\n";
@@ -68,7 +64,6 @@ void ScalarConverter::convert(const std::string& literal) {
         return;
     }
 
-    // A. طباعة char
     if (value < 0 || value > 127) {
         std::cout << "char: impossible\n";
     } else if (!std::isprint(static_cast<int>(value))) {
@@ -76,15 +71,12 @@ void ScalarConverter::convert(const std::string& literal) {
     } else {
         std::cout << "char: '" << static_cast<char>(value) << "'\n";
     }
-
-    // B. طباعة int
     if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max()) {
         std::cout << "int: impossible\n";
     } else {
         std::cout << "int: " << static_cast<int>(value) << "\n";
     }
 
-    // C. طباعة float و double بـ static_cast
     float fValue = static_cast<float>(value);
     std::cout << "float: " << std::fixed << std::setprecision(1) << fValue << "f\n";
     std::cout << "double: " << std::fixed << std::setprecision(1) << value << "\n";
