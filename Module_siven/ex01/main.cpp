@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 21:43:38 by nqasem            #+#    #+#             */
-/*   Updated: 2026/03/01 21:49:58 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/07/22 19:05:45 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int main()
     iter(arr2, 3, printFloat);
     std::cout << "\nAfter addOne: ";
     iter(arr2, 3, addOneFloat);
+    iter(arr2, 3, addOneFloat);
     iter(arr2, 3, printFloat);
     std::cout << "\n\n";
 
@@ -70,7 +71,8 @@ int main()
     iter(arr3, 3, printString);
     std::cout << "\nAfter addOne: ";
     iter(arr3, 3, addOneString);
-    iter(arr3, 3, printString);
+
+	iter(arr3, 3, printString);
     std::cout << "\n\n";
 
     return 0;

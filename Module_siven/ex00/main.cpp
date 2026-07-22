@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 23:06:09 by nqasem            #+#    #+#             */
-/*   Updated: 2026/03/01 23:08:13 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/07/22 19:04:52 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main( void )
 
 	std::string c = "chaine1";
 	std::string d = "chaine2";
-
+	std::cout << "c = " << c << ", d = " << d << std::endl;
 	::swap(c, d);
 	std::cout << "c = " << c << ", d = " << d << std::endl;
 	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
