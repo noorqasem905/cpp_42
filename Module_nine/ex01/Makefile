@@ -1,9 +1,9 @@
 CC =  c++ 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 ARFLAGS = rcs
-NAME = iter
+NAME = RPN
 all: $(NAME)
-SRCS = main.cpp
+SRCS = main.cpp RPN.cpp
 
 OBJS =  $(SRCS:.cpp=.o)
 
