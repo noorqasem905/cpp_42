@@ -6,7 +6,7 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 15:44:00 by nqasem            #+#    #+#             */
-/*   Updated: 2026/10/04 19:41:10 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/10/05 18:23:07 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,13 @@ unsigned int Span::shortestSpan() const {
         throw NoSpanFoundException();
     }
 
-    // نسخ الـ vector وترتيبه تصاعدياً
     std::vector<int> sorted = _numbers;
     std::sort(sorted.begin(), sorted.end());
 
     unsigned int minSpan = std::numeric_limits<unsigned int>::max();
     
-    // إيجاد أصغر فرق بين كل رقمين متجاورين
     for (size_t i = 1; i < sorted.size(); ++i) {
-        unsigned int diff = sorted[i] - sorted[i - 1];
+        unsigned int diff = static_cast<unsigned int>(sorted[i]) - static_cast<unsigned int>(sorted[i - 1]);
         if (diff < minSpan) {
             minSpan = diff;
         }
@@ -62,9 +60,8 @@ unsigned int Span::longestSpan() const {
         throw NoSpanFoundException();
     }
 
-    // استخدام خوارزميات الـ STL لإيجاد الأكبر والأصغر مباشرة
     std::vector<int>::const_iterator minIt = std::min_element(_numbers.begin(), _numbers.end());
     std::vector<int>::const_iterator maxIt = std::max_element(_numbers.begin(), _numbers.end());
 
-    return *maxIt - *minIt;
+    return static_cast<unsigned int>(*maxIt) - static_cast<unsigned int>(*minIt);
 }
