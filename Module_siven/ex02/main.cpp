@@ -6,14 +6,11 @@
 /*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 23:21:22 by nqasem            #+#    #+#             */
-/*   Updated: 2026/03/01 23:21:23 by nqasem           ###   ########.fr       */
+/*   Updated: 2026/10/06 10:03:02 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
-
-#include "array.hpp"
+#include "Array.hpp"
 #include <iostream>
 #include <string>
 

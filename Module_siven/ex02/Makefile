@@ -1,7 +1,7 @@
 CC =  c++ 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 ARFLAGS = rcs
-NAME = array
+NAME = Array
 all: $(NAME)
 SRCS = main.cpp
 
