@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include <limits>
+#include <algorithm>
+#include <numeric>
 
 Span::Span() : _maxSize(0) {}
 
@@ -44,15 +45,12 @@ unsigned int Span::shortestSpan() const {
     std::vector<int> sorted = _numbers;
     std::sort(sorted.begin(), sorted.end());
 
-    unsigned int minSpan = std::numeric_limits<unsigned int>::max();
-    
-    for (size_t i = 1; i < sorted.size(); ++i) {
-        unsigned int diff = static_cast<unsigned int>(sorted[i]) - static_cast<unsigned int>(sorted[i - 1]);
-        if (diff < minSpan) {
-            minSpan = diff;
-        }
-    }
-    return minSpan;
+    std::vector<int> diffs(sorted.size());
+    std::adjacent_difference(sorted.begin(), sorted.end(), diffs.begin());
+
+    std::vector<int>::const_iterator minIt = std::min_element(diffs.begin() + 1, diffs.end());
+
+    return static_cast<unsigned int>(*minIt);
 }
 
 unsigned int Span::longestSpan() const {

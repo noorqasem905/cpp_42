@@ -9,7 +9,6 @@
 /*   Updated: 2026/10/04 19:41:01 by nqasem           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
@@ -38,7 +37,7 @@ public:
 
     template <typename Iterator>
     void addNumbers(Iterator begin, Iterator end) {
-        if (std::distance(begin, end) + _numbers.size() > _maxSize) {
+        if (static_cast<size_t>(std::distance(begin, end)) + _numbers.size() > _maxSize) {
             throw SpanFullException();
         }
         _numbers.insert(_numbers.end(), begin, end);

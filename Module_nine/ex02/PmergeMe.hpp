@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef PMERGEME_HPP
 #define PMERGEME_HPP
 
@@ -18,12 +17,9 @@
 #include <vector>
 #include <deque>
 #include <string>
-#include <sstream>
 #include <cstdlib>
 #include <ctime>
-#include <cctype>
 #include <algorithm>
-#include <sys/time.h>
 
 class PmergeMe {
 private:
@@ -39,12 +35,8 @@ private:
     };
 
     void _sortVector(std::vector<int>& vec);
-    void _insertVector(std::vector<int>& mainChain, std::vector<int>& pending, int straggler);
-
     void _sortDeque(std::deque<int>& deq);
-    void _insertDeque(std::deque<int>& mainChain, std::deque<int>& pending, int straggler);
-
-	std::vector<size_t> _generateJacobsthalSequence(size_t size);
+    std::vector<size_t> _generateJacobsthalSequence(size_t size);
 
 public:
     PmergeMe();

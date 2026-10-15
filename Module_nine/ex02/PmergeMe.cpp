@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   pmergeMe.cpp                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nqasem <nqasem@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/28 18:50:55 by nqasem            #+#    #+#             */
-/*   Updated: 2026/07/23 17:48:47 by nqasem           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "pmergeMe.hpp"
+#include "PmergeMe.hpp"
 
 PmergeMe::PmergeMe() : _vecTime(0), _deqTime(0) {}
 
@@ -38,12 +26,8 @@ std::vector<size_t> PmergeMe::_generateJacobsthalSequence(size_t size) {
     if (size == 1) return jacob;
 
     jacob.push_back(3);
-    while (true) {
+    while (jacob.back() < size) {
         size_t next = jacob[jacob.size() - 1] + 2 * jacob[jacob.size() - 2];
-        if (next >= size) {
-            jacob.push_back(next);
-            break;
-        }
         jacob.push_back(next);
     }
     return jacob;
@@ -83,10 +67,12 @@ void PmergeMe::_sortVector(std::vector<int>& vec) {
     _sortVector(mainChain);
 
     std::vector<int> pendingChain;
+    std::vector<bool> used(pairs.size(), false);
     for (size_t i = 0; i < mainChain.size(); ++i) {
         for (size_t j = 0; j < pairs.size(); ++j) {
-            if (mainChain[i] == pairs[j].main) {
+            if (!used[j] && mainChain[i] == pairs[j].main) {
                 pendingChain.push_back(pairs[j].pending);
+                used[j] = true;
                 break;
             }
         }
@@ -110,7 +96,7 @@ void PmergeMe::_sortVector(std::vector<int>& vec) {
                 int valToInsert = pendingChain[i];
                 std::vector<int>::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), valToInsert);
                 mainChain.insert(pos, valToInsert);
-                if (i == lastInsertedIndex) break; // حماية من الحلقات اللا نهائية لـ size_t
+                if (i == lastInsertedIndex) break; 
             }
             lastInsertedIndex = targetIndex + 1;
             if (lastInsertedIndex >= pendingChain.size()) break;
@@ -159,10 +145,12 @@ void PmergeMe::_sortDeque(std::deque<int>& deq) {
     _sortDeque(mainChain);
 
     std::deque<int> pendingChain;
+    std::deque<bool> used(pairs.size(), false);
     for (size_t i = 0; i < mainChain.size(); ++i) {
         for (size_t j = 0; j < pairs.size(); ++j) {
-            if (mainChain[i] == pairs[j].main) {
+            if (!used[j] && mainChain[i] == pairs[j].main) {
                 pendingChain.push_back(pairs[j].pending);
+                used[j] = true;
                 break;
             }
         }
@@ -206,28 +194,29 @@ void PmergeMe::_sortDeque(std::deque<int>& deq) {
 // ----------------------------------------------------
 void PmergeMe::run(int argc, char** argv) {
     if (argc < 2) {
-        std::cout << "Error" << std::endl;
+        std::cerr << "Error" << std::endl;
         return;
     }
 
-    // التحقق من المدخلات أنها أرقام صحيحة موجبة فقط
     for (int i = 1; i < argc; ++i) {
         std::string arg = argv[i];
         if (arg.empty()) {
-            std::cout << "Error" << std::endl;
+            std::cerr << "Error" << std::endl;
             return;
         }
         for (size_t j = 0; j < arg.length(); ++j) {
             if (!std::isdigit(arg[j])) {
-                std::cout << "Error" << std::endl;
+                std::cerr << "Error" << std::endl;
                 return;
             }
         }
         long val = std::atol(arg.c_str());
         if (val <= 0 || val > 2147483647) {
-            std::cout << "Error" << std::endl;
+            std::cerr << "Error" << std::endl;
             return;
         }
+        
+
         _vec.push_back(static_cast<int>(val));
         _deq.push_back(static_cast<int>(val));
     }
@@ -241,13 +230,13 @@ void PmergeMe::run(int argc, char** argv) {
     clock_t startVec = clock();
     _sortVector(_vec);
     clock_t endVec = clock();
-	_vecTime = static_cast<double>(endVec - startVec) / CLOCKS_PER_SEC * 1000000.0;
-    // 3. قياس وفرز std::deque
+    _vecTime = static_cast<double>(endVec - startVec) / CLOCKS_PER_SEC * 1000000.0;
+
     clock_t startDeq = clock();
     _sortDeque(_deq);
     clock_t endDeq = clock();
-	_deqTime = static_cast<double>(endDeq - startDeq) / CLOCKS_PER_SEC * 1000000.0;
-    // 4. طباعة العناصر بعد الفرز والوقت المستغرق
+    _deqTime = static_cast<double>(endDeq - startDeq) / CLOCKS_PER_SEC * 1000000.0;
+
     std::cout << "After:  ";
     for (size_t i = 0; i < _vec.size(); ++i) {
         std::cout << _vec[i] << (i + 1 == _vec.size() ? "" : " ");

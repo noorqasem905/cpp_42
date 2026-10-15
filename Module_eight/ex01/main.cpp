@@ -39,13 +39,13 @@ int main()
         Span emptySpan(1);
         emptySpan.addNumber(42);
         try {
-            emptySpan.addNumber(43); // يجب أن يرمي استثناء
+            emptySpan.addNumber(43);
         } catch (const std::exception& e) {
             std::cout << RED << "Caught exception: " << e.what() << RESET << std::endl;
         }
 
         try {
-            emptySpan.shortestSpan(); // يجب أن يرمي استثناء لأنه عنصر واحد
+            emptySpan.shortestSpan();
         } catch (const std::exception& e) {
             std::cout << RED << "Caught exception: " << e.what() << RESET << std::endl;
         }
@@ -56,13 +56,11 @@ int main()
         Span bigSpan(15000);
         std::vector<int> bigVector;
         
-        // تعبئة الفيكتور بـ 15000 رقم (من 0 إلى 14999 مضروبة في 10)
         for (int i = 0; i < 15000; ++i) {
             bigVector.push_back(i * 10);
         }
 
         try {
-            // إضافتهم دفعة واحدة
             bigSpan.addNumbers(bigVector.begin(), bigVector.end());
             std::cout << GREEN << "Successfully added 15,000 elements!" << RESET << std::endl;
             

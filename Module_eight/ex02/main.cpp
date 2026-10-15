@@ -68,6 +68,7 @@ int main()
     
     ++lit;
     --lit;
+    
     while (lit != lite)
     {
         std::cout << *lit << std::endl;
