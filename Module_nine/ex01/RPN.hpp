@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef RPN_HPP
 #define RPN_HPP
 
@@ -18,11 +17,12 @@
 #include <sstream>
 #include <string>
 #include <stack>
+#include <list>
 #include <cstdlib>
 
 class RPN {
 private:
-	std::stack<double> _stack;
+    std::stack<double, std::list<double> > _stack;
 
 public:
     RPN();
@@ -30,7 +30,7 @@ public:
     RPN& operator=(const RPN& other);
     ~RPN();
 
-	void evaluateExpression(const std::string& expression);
+    bool evaluateExpression(const std::string& expression);
 };
 
 #endif

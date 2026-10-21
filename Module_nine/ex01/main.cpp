@@ -19,7 +19,8 @@ int main(int argc, char** argv) {
     }
 
     RPN calculator;
-    calculator.evaluateExpression(argv[1]);
-
-    return (0);
+    if (!calculator.evaluateExpression(argv[1])) {
+        return 1;
+    }
+    return 0;
 }
