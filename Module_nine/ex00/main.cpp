@@ -21,7 +21,9 @@ int main(int argc, char** argv) {
 
     BitcoinExchange btc;
 
-    btc.loadDatabase("data.csv");
+    if (!btc.loadDatabase("data.csv")) {
+        return 1;
+    }
     btc.processInputFile(argv[1]);
 
     return 0;

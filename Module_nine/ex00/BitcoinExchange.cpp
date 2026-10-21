@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange() {}
@@ -65,10 +64,10 @@ bool BitcoinExchange::isValidDate(const std::string& date) const {
     return true;
 }
 
-bool BitcoinExchange::isValidValue(const std::string& valStr, float& value) const {
+bool BitcoinExchange::isValidValue(const std::string& valStr, double& value) const {
     std::string trimmedVal = trim(valStr);
     if (trimmedVal.empty()) {
-        std::cout << "Error: bad input => empty value" << std::endl;
+        std::cout << "Error: bad input => " << valStr << std::endl;
         return false;
     }
 
@@ -88,38 +87,39 @@ bool BitcoinExchange::isValidValue(const std::string& valStr, float& value) cons
         return false;
     }
 
-    value = static_cast<float>(val);
+    value = val;
     return true;
 }
 
-void BitcoinExchange::loadDatabase(const std::string& dbPath) {
+bool BitcoinExchange::loadDatabase(const std::string& dbPath) {
     std::ifstream file(dbPath.c_str());
     if (!file.is_open()) {
         std::cerr << "Error: could not open database file." << std::endl;
-        return;
+        return false;
     }
 
     std::string line;
-    std::getline(file, line);
+    if (!std::getline(file, line)) {
+        std::cerr << "Error: empty database file." << std::endl;
+        file.close();
+        return false;
+    }
 
     while (std::getline(file, line)) {
         if (line.empty()) continue;
         size_t commaPos = line.find(',');
         if (commaPos != std::string::npos) {
             std::string date = trim(line.substr(0, commaPos));
-            float rate = static_cast<float>(std::atof(line.substr(commaPos + 1).c_str()));
+            char* endPtr;
+            double rate = std::strtod(line.substr(commaPos + 1).c_str(), &endPtr);
             _database[date] = rate;
         }
     }
     file.close();
+    return true;
 }
 
 void BitcoinExchange::processInputFile(const std::string& inputPath) const {
-    if (_database.empty()) {
-        std::cerr << "Error: database is empty or not loaded." << std::endl;
-        return;
-    }
-
     std::ifstream file(inputPath.c_str());
     if (!file.is_open()) {
         std::cerr << "Error: could not open file." << std::endl;
@@ -127,11 +127,15 @@ void BitcoinExchange::processInputFile(const std::string& inputPath) const {
     }
 
     std::string line;
+    bool isFirstLine = true;
     while (std::getline(file, line)) {
         if (line.empty()) continue;
 
-        if (line.find("date") != std::string::npos && line.find("value") != std::string::npos)
-            continue;
+        if (isFirstLine) {
+            isFirstLine = false;
+            if (line.find("date") != std::string::npos && line.find("value") != std::string::npos)
+                continue;
+        }
 
         size_t pipePos = line.find('|');
         if (pipePos == std::string::npos) {
@@ -147,12 +151,12 @@ void BitcoinExchange::processInputFile(const std::string& inputPath) const {
             continue;
         }
 
-        float value;
+        double value;
         if (!isValidValue(valStr, value)) {
             continue;
         }
 
-        std::map<std::string, float>::const_iterator it = _database.lower_bound(date);
+        std::map<std::string, double>::const_iterator it = _database.lower_bound(date);
 
         if (it != _database.end() && it->first == date) {
             std::cout << date << " => " << value << " = " << (value * it->second) << std::endl;

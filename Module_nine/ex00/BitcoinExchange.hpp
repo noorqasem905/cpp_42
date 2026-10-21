@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
@@ -23,10 +22,10 @@
 
 class BitcoinExchange {
 private:
-    std::map<std::string, float> _database;
+    std::map<std::string, double> _database;
 
     bool isValidDate(const std::string& date) const;
-    bool isValidValue(const std::string& valStr, float& value) const;
+    bool isValidValue(const std::string& valStr, double& value) const;
     std::string trim(const std::string& str) const;
 
 public:
@@ -35,7 +34,7 @@ public:
     BitcoinExchange& operator=(const BitcoinExchange& other);
     ~BitcoinExchange();
 
-    void loadDatabase(const std::string& dbPath);
+    bool loadDatabase(const std::string& dbPath);
     void processInputFile(const std::string& inputPath) const;
 };
 
